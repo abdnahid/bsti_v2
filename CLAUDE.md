@@ -6,6 +6,7 @@ The user is a BSTI official driving this effort. Goal: BSTI owns the requirement
 
 ## Read first
 
+- `notes/`: official drafts (Bangla note sheets and office memos for DG approval). Government notes are written in Bangla, with Bangla numerals and numbered paragraphs (০১, ০২…), ending "সদয় অনুমোদনের জন্য…". Keep the tone neutral towards OrangeBD.
 - `sessions/` — dated records of each discussion. Read the latest one before continuing; build on its findings instead of re-deriving them.
 
 ## Source documents
@@ -17,6 +18,22 @@ The user is a BSTI official driving this effort. Goal: BSTI owns the requirement
 | `BSTI 2.0 - Financial Proposal V4.pdf` | OrangeBD v2 financial offer, 8 pages | `pdftotext -layout` |
 | `BSTI 2.0.pptx` | 47-slide deck: offer + one slide per service (modules/feature counts) | No python-pptx; unzip and regex `<a:t>` from `ppt/slides/slideN.xml` |
 | `BSTI 2.0 SRS .pdf` | 303-page SRS by OrangeBD (note the space before `.pdf`) | `pdftotext -layout` (~13k lines); architecture diagram is p.17 (render as image) |
+| `Govt office project details.xlsx` | **The** reference for other government offices' software projects (see below) | `openpyxl` (`data_only=True`) |
+
+## Other government projects: always use the xlsx
+
+`Govt office project details.xlsx` is the single reference for comparing BSTI 2.0 with other government software projects (price, scope, maintenance, vendor). Use it whenever benchmarking comes up. Don't rebuild these figures from memory or the web without checking it first.
+
+- **Sheets:**
+  - `Projects`: office, title, scope, value (crore), maintenance (crore), remarks, vendor
+  - `Maintenance benchmarks`: monthly and annual maintenance compared, including the BSTI offer
+  - `Sources`: S1–S27 links
+- **The user maintains this file.** Their edits override anything found online. Read it fresh each time rather than relying on a summary.
+- **Writing to it:** add new findings only when asked. Add them as rows or remarks, and append the source to the `Sources` sheet. Never overwrite the user's figures; note any conflict in the remarks and tell the user.
+- **Verification levels:**
+  - Verified by an e-GP contract award: D-Nothi and e-Mutation maintenance.
+  - Taken from OrangeBD's deck, slide 11, and not independently verified: myGov, RDCD, PID, Jiban Bima.
+  - Everything else is user-provided or from news and EOIs.
 
 Tools available: `pdftotext` (Git Bash mingw64), Python 3.14 with `pymupdf`. Not available: `pdftoppm`, `pypdf`, `python-pptx`, `tesseract`. Put extracted text and renders in the session scratchpad, not this folder.
 
