@@ -45,6 +45,8 @@ Tools available: `pdftotext` (Git Bash mingw64), Python 3.14 with `pymupdf`. Not
 - **Live now (5):** CM (new registration only), HR, Payroll, PCR, Standards sale. All 23 offices are added but run under the head office organogram. Restructuring and data migration are planned for phase 2.
 - **Hosting:** BCC. **Phase 2 funding:** BSTI revenue, with the full PPR applying. Services 22/23 (Importer/Exporter) are to be replaced by the Metrology dealer licence and Standards sale. Neither replacement is described in the SRS.
 - **v2 offer (Sep 2026):** 33 "services", BDT 18.69 crore + VAT (11.17 cr rollout Aug 2026–Dec 2029 + 7.52 cr maintenance 2030–31), billed per live service per month.
+- **BSTI counter-structure (19 Oct 2026):** `BSTI 2.0 - Revised Financial Structure.xlsx`. Same rollout total, split by deck feature volume in the `serial.docx` priority order into WP0–WP7. Each package is ≤ 2 crore incl. VAT and is paid on milestones. Last go-live is Dec 2029. User rule: CM + PCR + labs + Accounts must be fully running by Dec 2027 (go-live 30 Nov 2027).
+- **Number format:** show money with lakh/crore separators (11,16,65,000), not Western 111,665,000.
 
 ## Conventions
 
