@@ -49,6 +49,38 @@
 - **Cash flow effect:** 2027 is now ৳4.22 cr against the proposal's ৳2.05 cr (+৳2.17 cr); 2028 is ৳1.78 cr lower. The revenue budget for 2027 has to provide for this.
 - A new Summary check (Inputs B15) flags if WP1–WP3 go-live slips past 31 Dec 2027.
 
+## Revision 2 (same day): phase 1 = maintenance + restructuring, no overlap
+
+**User instructions:**
+- Maintenance of the 5 live services goes inside the BSTI 2.0 transformation package.
+- That phase is a total restructuring; new development comes after it.
+- Package timelines must not overlap.
+- Keep the existing package table, and add a sub-level price breakdown beside it.
+
+**User decisions (asked):**
+- Keep the Dec 2027 deadline and compress the schedule.
+- Move CM new and PCR new into phase 1.
+
+**Changes:**
+- **WP0 is gone.** The ৳16.25 lakh Aug–Dec 2026 O&M is now a lump-sum line inside WP1, paid on signing (31 Dec 2026). WP1's milestones apply to its development part only.
+- **The cap forced a reshuffle.** Accounts moves to WP2 with labs, and PCR renewal and brand inclusion stay in WP1 with PCR new. Accounts in WP2 together with PCR variants would have been ৳2.19 cr incl. VAT. PCR variants in WP3 alongside CM would have been ৳2.02 cr.
+- **Schedule.** Packages run one at a time; only stabilisation/warranty runs alongside the next package. Gantt row 12 must stay ≤ 1, and Summary has a new check (C46).
+
+| Package | Scope | Value (lakh) | Incl. VAT (cr) | Start | Go-live | Approval by |
+|---|---|---|---|---|---|---|
+| WP1 | O&M of 5 live + platform + HRM, Payroll, BDS, CM new, PCR (new/renewal/brand) | 162.24 | 1.866 | Jan 2027 | 30 Apr 2027 | 30 Nov 2026 |
+| WP2 | Accounts + Chemical, Physical, Energy Meter labs | 162.41 | 1.868 | May 2027 | 31 Aug 2027 | 31 Mar 2027 |
+| WP3 | CM variants + scope + suspension/cancellation | 147.21 | 1.693 | Sep 2027 | 30 Nov 2027 | 31 Jul 2027 |
+| WP4 | Mobile court … storage tank | 173.36 | 1.994 | Jan 2028 | 30 Jun 2028 | 30 Nov 2027 |
+| WP5 | MSC | 162.41 | 1.868 | Jul 2028 | 31 Dec 2028 | 31 May 2028 |
+| WP6 | Halal, LPG, Case mgmt | 173.67 | 1.997 | Jan 2029 | 30 Jun 2029 | 30 Nov 2028 |
+| WP7 | NML, Building, BSW API, Importer/Exporter | 135.35 | 1.557 | Jul 2029 | 31 Dec 2029 | 31 May 2029 |
+
+- **Timing.** WP1–WP3 get 1-month design, build and UAT windows (4 + 4 + 3 months). CM goes live in its UAT month. This is a delivery risk (Notes item 19), and OrangeBD has to confirm resourcing.
+- **Cash flow (excl. VAT).** 2027 is ৳4.41 cr against the proposal's ৳2.05 cr (+235.7 lakh). 2028 is ৳3.34 cr (−65.7 lakh), and 2029 is ৳3.12 cr (−183.6 lakh). WP7 retention of ৳13.5 lakh falls in Mar 2030.
+- **New table** on Summary J11:R70: a price breakdown by sub-level (48 Work Volume rows + the O&M line). Each line is its work share rounded to ৳1,000, the last line in each block balances to the package value, and each package has a subtotal. A block check shows MOVED if a row is reassigned on Work Volume. Summary check C47.
+- **How it was built:** Python wasn't available this session, so Node + exceljs was used to edit the workbook and HyperFormula to recalculate it. All 11 Summary checks are OK, and cached values are written into the file.
+
 ## Open points
 
 - Importer/Exporter (marked * in serial.docx) is included as the last priority. Set Include = N to drop it.
