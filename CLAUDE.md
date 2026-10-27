@@ -11,6 +11,8 @@ The user is a BSTI official driving this effort. Goal: BSTI owns the requirement
 
 ## Source documents
 
+The PDFs, the pptx, `serial.docx`, `meeting memory.docx` and `Govt office project details.xlsx` are in `utils/`. `BSTI 2.0 - Revised Financial Structure.xlsx` is in the root.
+
 | File | What it is | How to read |
 |---|---|---|
 | `notes on BSTI_v1 history.pdf` | 19-page scanned Bangla note sheet (নোট শীট), Apr 2024 – Sep 2025, on how v1 started | No text layer. Render pages with `pymupdf` (`page.get_pixmap(dpi=90)`) and read the images |
@@ -18,6 +20,8 @@ The user is a BSTI official driving this effort. Goal: BSTI owns the requirement
 | `BSTI 2.0 - Financial Proposal V4.pdf` | OrangeBD v2 financial offer, 8 pages | `pdftotext -layout` |
 | `BSTI 2.0.pptx` | 47-slide deck: offer + one slide per service (modules/feature counts) | No python-pptx; unzip and regex `<a:t>` from `ppt/slides/slideN.xml` |
 | `BSTI 2.0 SRS .pdf` | 303-page SRS by OrangeBD (note the space before `.pdf`) | `pdftotext -layout` (~13k lines); architecture diagram is p.17 (render as image) |
+| `serial.docx` | BSTI service priority list (20 groups + suspension/cancellation + Importer/Exporter*), approved by all focal points at the 19 Oct 2026 meeting | unzip `word/document.xml`, strip tags |
+| `meeting memory.docx` | User's notes of the 19 Oct 2026 meeting | unzip `word/document.xml`, strip tags |
 | `Govt office project details.xlsx` | **The** reference for other government offices' software projects (see below) | `openpyxl` (`data_only=True`) |
 
 ## Other government projects: always use the xlsx
@@ -50,6 +54,8 @@ Tools available: `pdftotext` (Git Bash mingw64), Python 3.14 with `pymupdf`. Not
   - WP1 = BSTI 2.0 transformation: O&M of the 5 live services plus a total restructuring of them, and nothing else.
   - Packages run one after another, never in parallel.
   - The Summary sheet carries a sub-level price breakdown beside the package table.
+- **19 Oct 2026 focal-point meeting:** the SRS has not been validated with the wings and is treated as a draft. OrangeBD's model needs some revisions: a priority-wise cost breakdown, a service-wise schedule, and personnel per service. The focal points approved the priority list (`serial.docx`). The ৳2 cr DG limit and yearly agreements were discussed, but the user removed them from the final minutes. Minutes: `notes/2026-10-19-meeting-minutes-orangebd-proposal-srs.docx` (Bangla, Kalpurush font). After the user revised them, the minutes treat the service model as cost-justified (23.55 cr ground-up vs 18.69 cr) and include the comparison visits to other government offices.
+- **Ministry directive (08 Oct 2026):** the Secretary, Ministry of Industries, directed that BSTI customer services be digitalised by Dec 2027.
 - **Tools:** Python may be missing on this machine (only the Windows Store stub). If so, use Node in the scratchpad: `exceljs` to edit xlsx files and `hyperformula` to recalculate them.
 - **Number format:** show money with lakh/crore separators (11,16,65,000), not Western 111,665,000.
 
